@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "awshttp"
-version = "0.1.0"
+version = "0.1.1"
 authors = [{name = "Sam Fakhreddine"}]
 description = "Minimal AWS SigV4 signed HTTP requests library"
 readme = "README.md"
