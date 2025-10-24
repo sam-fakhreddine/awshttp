@@ -15,7 +15,7 @@ import requests
 from botocore.auth import SigV4Auth
 from botocore.awsrequest import AWSRequest
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 __all__ = ['request', 'get', 'post', 'put', 'delete', 'patch', 'with_retry', 'post_json', 'put_json']
 
 

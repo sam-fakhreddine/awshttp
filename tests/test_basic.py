@@ -5,7 +5,7 @@ import awshttp
 
 def test_import():
     """Test that the module can be imported."""
-    assert awshttp.__version__ == '0.1.0'
+    assert awshttp.__version__ == '0.1.2'
 
 
 def test_exports():

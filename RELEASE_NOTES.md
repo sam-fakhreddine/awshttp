@@ -1,4 +1,4 @@
-# awshttp v0.1.1 - Initial Release
+# awshttp v0.1.2 - Initial Release
 
 Minimal Python library for making AWS SigV4 signed HTTP requests.
 
