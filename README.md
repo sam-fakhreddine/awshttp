@@ -152,6 +152,30 @@ def my_api_call():
 - `AWSHTTP_TIMEOUT` - Default timeout in seconds
 - `AWSHTTP_VERIFY_SSL` - SSL verification (true/false)
 
+## Project Structure
+
+```
+awshttp/
+├── awshttp/          # Main package
+├── tests/            # Test suite
+├── examples/         # Usage examples
+├── docs/             # Documentation
+└── .github/          # GitHub Actions workflows
+```
+
+## Development
+
+```bash
+# Install with dev dependencies
+make dev
+
+# Run tests
+make test
+
+# Build package
+make build
+```
+
 ## License
 
 MIT

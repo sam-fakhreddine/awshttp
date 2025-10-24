@@ -1,9 +1,18 @@
-.PHONY: clean build upload test install
+.PHONY: clean build upload test install dev
 
 clean:
 	rm -rf build dist *.egg-info
 	find . -type d -name __pycache__ -exec rm -rf {} +
 	find . -type f -name '*.pyc' -delete
+
+install:
+	pip install -e .
+
+dev:
+	pip install -e ".[dev]"
+
+test:
+	pytest tests/ -v
 
 build: clean
 	python -m build
@@ -13,9 +22,3 @@ upload-test: build
 
 upload: build
 	python -m twine upload dist/*
-
-install:
-	pip install -e .
-
-test:
-	python test_color_change.py
