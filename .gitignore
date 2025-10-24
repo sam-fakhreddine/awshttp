@@ -44,6 +44,3 @@ htmlcov/
 # OS
 .DS_Store
 Thumbs.db
-
-GITHUB_SETUP.md
-PUBLISHING.md
