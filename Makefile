@@ -1,24 +1,26 @@
-.PHONY: clean build upload test install dev
+.PHONY: clean build upload test install dev sync
 
 clean:
 	rm -rf build dist *.egg-info
 	find . -type d -name __pycache__ -exec rm -rf {} +
 	find . -type f -name '*.pyc' -delete
 
-install:
-	pip install -e .
+sync:
+	uv sync --all-extras
 
-dev:
-	pip install -e ".[dev]"
+install:
+	uv pip install -e .
+
+dev: sync
 
 test:
-	pytest tests/ -v
+	uv run pytest tests/ -v
 
 build: clean
-	python -m build
+	uv build
 
 upload-test: build
-	python -m twine upload --repository testpypi dist/*
+	uv run twine upload --repository testpypi dist/*
 
 upload: build
-	python -m twine upload dist/*
+	uv run twine upload dist/*

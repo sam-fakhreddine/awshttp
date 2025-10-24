@@ -5,17 +5,26 @@ Thanks for your interest in contributing!
 ## Development Setup
 
 ```bash
-git clone https://github.com/samfakhreddine/awshttp.git
+git clone https://github.com/sam-fakhreddine/awshttp.git
 cd awshttp
+
+# Using uv (recommended)
+uv sync --all-extras
+
+# Or using traditional venv
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -e .
+pip install -e ".[dev]"
 ```
 
 ## Running Tests
 
 ```bash
-python test_color_change.py
+# Using uv
+uv run pytest tests/ -v
+
+# Or using make
+make test
 ```
 
 ## Submitting Changes

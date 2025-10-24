@@ -9,7 +9,11 @@ Perfect for Lambda functions and scripts that need to call AWS APIs with automat
 ## Installation
 
 ```sh
+# Using pip
 pip install awshttp
+
+# Using uv (recommended)
+uv pip install awshttp
 ```
 
 ## Usage
@@ -166,14 +170,14 @@ awshttp/
 ## Development
 
 ```bash
-# Install with dev dependencies
-make dev
+# Using uv (recommended)
+uv sync --all-extras
+uv run pytest tests/
 
-# Run tests
-make test
-
-# Build package
-make build
+# Or using make
+make dev    # Install with dev dependencies
+make test   # Run tests
+make build  # Build package
 ```
 
 ## License

@@ -4,20 +4,17 @@
 
 1. **Create PyPI account**: https://pypi.org/account/register/
 2. **Create TestPyPI account**: https://test.pypi.org/account/register/
-3. **Install build tools**:
-   ```bash
-   pip install build twine
-   ```
+3. **Install uv**: https://docs.astral.sh/uv/getting-started/installation/
 
 ## Publishing Steps
 
 ### 1. Test Locally
 ```bash
 # Install in development mode
-pip install -e .
+uv sync --all-extras
 
-# Test the package
-python test_color_change.py
+# Run tests
+uv run pytest tests/ -v
 ```
 
 ### 2. Update Version
@@ -28,8 +25,8 @@ Update version in:
 
 ### 3. Build Package
 ```bash
-make clean
 make build
+# Or: uv build
 ```
 
 This creates:
@@ -39,10 +36,10 @@ This creates:
 ### 4. Test on TestPyPI (Optional but Recommended)
 ```bash
 # Upload to TestPyPI
-python -m twine upload --repository testpypi dist/*
+uv run twine upload --repository testpypi dist/*
 
 # Test installation
-pip install --index-url https://test.pypi.org/simple/ awshttp
+uv pip install --index-url https://test.pypi.org/simple/ awshttp
 ```
 
 ### 5. Publish to PyPI
@@ -50,7 +47,7 @@ pip install --index-url https://test.pypi.org/simple/ awshttp
 # Upload to PyPI
 make upload
 # Or manually:
-python -m twine upload dist/*
+uv run twine upload dist/*
 ```
 
 ### 6. Create GitHub Release

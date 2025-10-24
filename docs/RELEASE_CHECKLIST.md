@@ -20,12 +20,12 @@
 ## PyPI Publishing
 
 - [ ] PyPI account created: https://pypi.org/account/register/
-- [ ] Install build tools: `pip install build twine`
-- [ ] Build package: `make build`
+- [ ] Install uv: https://docs.astral.sh/uv/
+- [ ] Build package: `make build` or `uv build`
 - [ ] (Optional) Test on TestPyPI: `make upload-test`
 - [ ] Upload to PyPI: `make upload`
 - [ ] Verify package: https://pypi.org/project/awshttp/
-- [ ] Test installation: `pip install awshttp`
+- [ ] Test installation: `uv pip install awshttp`
 
 ## Post-Release
 
@@ -36,18 +36,20 @@
 ## Quick Commands
 
 ```bash
-# 1. Build
-make clean build
+# 1. Sync dependencies
+uv sync --all-extras
 
 # 2. Test locally
-pip install -e .
-python test_color_change.py
+uv run pytest tests/ -v
 
-# 3. Upload to PyPI
+# 3. Build
+make build
+
+# 4. Upload to PyPI
 make upload
 
-# 4. Push to GitHub
+# 5. Push to GitHub
 git add .
 git commit -m "Release v0.1.0"
-git push origin main
+git push origin master
 ```
